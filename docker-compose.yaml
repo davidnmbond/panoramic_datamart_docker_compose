@@ -27,7 +27,7 @@ services:
           - ./db:/var/lib/postgresql/data/pgdata
 
     adminer:
-        image: adminer
+        image: dockette/adminer
         restart: always
         ports:
             - 8080:8080
