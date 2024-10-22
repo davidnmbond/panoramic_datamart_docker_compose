@@ -1,0 +1,72 @@
+{
+	"Configuration": {
+		"Name": "LogicMonitor Datamart",
+		"DataSources": [
+			{
+				"Name": "Ping",
+				"InstanceInclusionExpression": "true",
+				"DataPoints": [
+					{
+						"Name": "average",
+						"Description": "Average Round Trip Time",
+						"GraphName": null,
+						"MeasurementUnit": "ms",
+						"PercentageAvailabilityCalculation": "",
+						"GlobalAlertExpression": "",
+						"Calculation": "",
+						"Tags": "",
+						"Property1": "",
+						"Property2": "",
+						"Property3": "",
+						"InstanceDatapointProperty1": "",
+						"InstanceDatapointProperty2": "",
+						"InstanceDatapointProperty3": "",
+						"ResyncTimeSeriesData": false
+					}
+				]
+			}
+		],
+		"AggregationReset": null,
+		"StartDateTimeUtc": null,
+
+		"LogicMonitorClientOptions": {},
+
+		"DatabaseType": "Postgres",
+		"DatabaseServerName": "datamart_db",
+		"DatabaseServerPort": 5432,
+		"DatabaseRetryOnFailureCount": 0,
+		"SqlServerAuthenticationMethod": "SqlPassword",
+		"DatabaseName": "logicmonitor",
+		"DatabaseUsername": "pdata",
+		"SqlCommandTimeoutSeconds": 600,
+		"SqlBulkCopyTimeoutSeconds": 600,
+		"EnableSensitiveDatabaseLogging": false,
+		"DeviceDataSourceInstanceBatchSize": 100,
+		"DeviceProperties": [
+			"system.categories",
+			"system.sysinfo"
+		],
+		"DimensionSyncHaltOnError": true,
+		"MinutesOffset": 0,
+		"FakeExecutionTime": null
+	},
+	"Serilog": {
+		"MinimumLevel": {
+			"Default": "Information"
+		},
+		"Enrich": [
+			"FromLogContext"
+		],
+		"WriteTo": [
+			{
+				"Name": "Console",
+				"Args": {
+					"outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {SourceContext} {Message}{NewLine}{Exception}"
+				}
+			}
+		],
+		"Properties": {
+			"Application": "LogicMonitor.Datamart.Cli"
+		}
+	}
+}

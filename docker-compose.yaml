@@ -1,0 +1,35 @@
+services:
+
+    logicmonitor-datamart:
+        image: 'panoramicdata/logicmonitor-datamart:latest'
+        environment:
+            - CONFIG_FILE=/app/appsettings.json
+            - Configuration__DatabasePassword=${dbpassword}
+            - Configuration__LogicMonitorClientOptions__Account=${lm_account}
+            - Configuration__LogicMonitorClientOptions__AccessId=${lm_accessid}
+            - Configuration__LogicMonitorClientOptions__AccessKey=${lm_accesskey}
+        volumes:
+            - ./settings.json:/app/appsettings.json
+        ports:
+            - '5000:8080'
+        depends_on:
+            - datamart_db
+
+    datamart_db:
+        image: postgres
+        container_name: datamart_db
+        environment:
+            - POSTGRES_PASSWORD=${dbpassword}
+            - POSTGRES_USER=pdata
+            - POSTGRES_DB=logicmonitor
+            - PGDATA=/var/lib/postgresql/data/pgdata
+        volumes:
+          - ./db:/var/lib/postgresql/data/pgdata
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+        depends_on:
+            - datamart_db
