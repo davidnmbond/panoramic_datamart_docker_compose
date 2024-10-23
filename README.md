@@ -4,7 +4,7 @@ Here is a sample markdown based readme file based on the provided information:
 
 # LogicMonitor Datamart in Docker using Compose
 
-This repository contains the files needed to run the Panorama's [LogicMonitor Datamart](https://github.com/panoramicdata/LogicMonitor.Datamart?tab=readme-ov-file#introduction) using Docker Compose. The Datamart allows you to create a copy of your LogicMonitor system in a SQL Server or PostgreSQL database. 
+This repository contains the files needed to run the Panoramic Data [LogicMonitor Datamart](https://github.com/panoramicdata/LogicMonitor.Datamart?tab=readme-ov-file#introduction) using Docker Compose. The Datamart allows you to create a copy of your LogicMonitor system in a SQL Server or PostgreSQL database. 
 
 Running the datamart in Docker Compose allows turn-key setup and installation of all the required components, including the PostgreSQL database and [Adminer](https://hub.docker.com/_/adminer), a popular web-based SQL database client. 
 Adminer is no longer maintained and can be removed from the docker-compose.yml definition. Alternatively, you can use other clients like [Dockette's Adminer](https://hub.docker.com/r/dockette/adminer). 
@@ -58,7 +58,7 @@ Once the containers are running, you can access the datamart by going to `http:/
 
 ## Configuration
 
-You can customize the datamart's behavior by modifying the `appsettings.json` file located in the root of this repository. Refer to the [full configuration file documentation](https://panoramicdata.com/logicmonitor-datamart/) for available options.
+You can customize the datamart's behavior by modifying the `appsettings.json` file located in the root of this repository. Refer to the [full configuration file documentation](https://panoramicdata.com/open-source/logicmonitor-datamart/) for available options.
 
 ## Support
 
